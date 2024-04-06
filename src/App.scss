@@ -1,0 +1,377 @@
+//*component header
+
+.header{
+    height: 76px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    
+    >nav{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .menu{
+            width: 35px;
+            height: 25px;
+            padding: 2px 0;
+            
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            >span{
+                display: block;
+                background-color: #000;
+                height: 2px;
+            }
+        }
+
+        >ul{
+            display: flex;
+            column-gap: 20px;
+
+            >li{
+                position: relative;
+                list-style: none;
+
+                >a{
+                    color: black;
+                    text-decoration: none;
+                }
+            }
+            >li::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background-color: rgb(0, 0, 0);
+                transition: all .2s linear;
+            }
+            >li:hover::after{
+                width: 100%;
+            }
+        }
+    }
+}
+
+//*component contenttitle
+
+.contenttitle{
+
+    .boxtop{
+        height: 450px;
+        background-color: #f6f6f6;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        row-gap: 20px;
+
+        >h1{
+            text-align: center;
+            font-size: 5rem;
+            font-weight: 100;
+        }
+
+        >p{
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .boxbtn{
+            display: flex;
+            column-gap: 20px;
+
+            >a:nth-of-type(1){
+                background-color: #4353ff;
+            }
+
+            >a:nth-of-type(2){
+                background-color: #000;
+            }
+        }
+
+        .boxbtn > a{
+            display: block;
+            width: 218;
+            height: 60;
+            padding: 15px 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    .boxbottom{
+        position: relative;
+        height: 35vw;
+        background-color: #f6f6f6;
+
+        >img{
+            position: absolute;
+            bottom: 0;
+        }
+
+        >img:nth-of-type(1) {
+            z-index: 1;
+            left: 0;
+            width: 35vw;
+        }
+        >img:nth-of-type(2) {
+            z-index: 2;
+            right: 100px;
+            width: 38vw;
+        }
+        >img:nth-of-type(3) {
+            z-index: 5;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48vw;
+        }
+        >img:nth-of-type(4) {
+            z-index: 2;
+            left: 100px;
+            width: 38vw;
+        }
+        >img:nth-of-type(5) {
+            z-index: 1;
+            right: 0;
+            width: 35vw;
+        }
+    }
+}
+
+//*component maincontent
+
+.maincontent{
+
+    h2{
+        font-size: 40px;
+        font-weight: 100;
+        margin: 35px 10px 30px 30px;
+    }
+
+    .boxitems{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        row-gap: 30px;
+    }
+}
+
+//*component itemstemplate
+
+.itemstemplate{
+    width: 42vw;
+    height: 30vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    >img{
+        display: block;
+        flex-grow: 1;
+    }
+
+    >div{
+        height: 80px;
+        padding: 10px;
+
+        >div{
+            display: flex;
+            justify-content: space-between;
+
+            >p{
+                font-size: 20px;
+            }
+        }
+
+        >p{
+            margin-top: 10px;
+        }
+    }
+}
+
+//*component contentfeature
+
+.contentfeature{
+
+    h2{
+        font-size: 40px;
+        font-weight: 100;
+        margin: 35px 10px 30px 30px;
+    }
+
+    .boxitems{
+        padding: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 30px;
+        row-gap: 80px;
+    }
+}
+
+//*component itemsfeature
+
+.itemsfeature{
+
+    >i{
+        font-size: 30px;
+    }
+
+    .name{
+        margin-top: 10px;
+        font-size: 25px;
+        font-weight: 400;
+    }
+
+    .detail{
+        color: #4d4c4c;
+        margin-top: 10px;
+        line-height: 1.5rem;
+    }
+}
+
+//*responsive
+
+@media screen and (max-width: 1000px) {
+    //*component contenttitle
+
+    .contenttitle{
+        h1{
+            font-size: 4rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    //*component contentfeature
+
+    .contentfeature{
+
+        .boxitems{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    //*component maincontent
+
+    .maincontent{
+
+        .boxitems{
+            grid-template-columns: 1fr;
+        }
+    }
+
+    //*component itemstemplate
+
+    .itemstemplate{
+        width: 68vw;
+        height: 48vw;
+    }
+
+}
+
+@media screen and (max-width: 705px) {
+    //*component header
+    
+    .header{
+        position: relative;
+
+        .menu{
+            width: 35px;
+            height: 25px;
+            padding: 2px 0;
+            
+            display: flex !important;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            >span{
+                display: block;
+                background-color: #000;
+                height: 2px;
+                transform-origin: right;
+                transition: all .5s;
+            }
+            .addhidspan2{
+                transform: scaleX(0);
+            }
+            .addspanx1{
+                transform: rotate(-32deg);
+            }
+            .addspanx2{
+                transform: rotate(35deg);
+            }
+        }
+
+        ul{
+            position: absolute;
+            right: 30px;
+            top: 76px;
+            height: 0;
+            background-color: #fff;
+            transition: all .2s linear;
+            overflow: hidden;
+            flex-direction: column;
+            row-gap: 5px;
+        }
+        .addshowmenu{
+            height: 100px;
+        }
+        .addhiddenmenu{
+            height: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 630px) {
+    //*component contenttitle
+
+    .contenttitle{
+        
+        .boxtop{
+
+            h1{
+                font-size: 2.5rem !important;
+            }
+
+            .boxbtn{
+                flex-direction: column;
+                row-gap: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 530px) {
+    //*component contentfeature
+
+    .contentfeature{
+
+        .boxitems{
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media screen and (max-width: 405px) {
+    //*component contenttitle
+
+    .contenttitle{
+        
+        .boxtop{
+            
+            h1{
+                font-size: 2.5rem !important;
+            }
+        }
+    }
+}
